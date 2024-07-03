@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module CmodA7_ctrl_top
+module spike_sampler_top
   (
    
    input 	GCLK,
