@@ -1,5 +1,5 @@
 # spike-sampler
-Multi-channel spike sampling program. The code is orignally designed for CMOD-A7 FPGA. 
+Multi-channel spike sampling program. The code is originally designed for CMOD-A7 FPGA. 
 
 # How to load the FPGA program
 Open hardware manager in Xilinx Vivado and load spike-sampler.bit to the FPGA. In this case, the FPGA needs to be reprogrammed each time it power cycles. 
@@ -7,15 +7,26 @@ Open hardware manager in Xilinx Vivado and load spike-sampler.bit to the FPGA. I
 Alternatively, create a memory configuration file and load spike-sampler.bin to the FPGA. The program is then loaded into the flash and no longer needs to be loaded every time.
 
 # MATLAB Spike Capturing Program Usage
-MATLAB programs read packets from the FPGA through UART. The FPGA sends spike channel ID and the timestamp. 
+Once powered on, the FPGA starts sampling the spikes, and when a spike is detected, the FPGA sends the spike channel ID and the timestamp to the host PC through UART. 
 
+The MATLAB program opens a UART port and records the spike information for a certain amount of time. 
+
+The FPGA supports a total of 16 spike channels. However, on the NeuroRadar baseboard, only 12 channels are connected, as shown in the figure below.
+
+![image](https://github.com/kaizheng28/spike-sampler/assets/144567523/1fe3e34d-6da5-463c-9f9e-eca11bb247b5)
+
+In the gesture recognition case study, 3 NeuroRadar channels are employed which corresponds to 6 spike channels. 
+
+In the localization case study, 6 NeuroRadar channels are employed which corresponds to 12 spike channels. 
+
+# File Description
 **gesture_samp.m**  
 
-Spike sampling program for gesture recognition use case.
+Spike sampling program for the gesture recognition use case.
 
 **loc_samp.m**      
 
-Spike sampling program for localization use case. 
+Spike sampling program for the localization use case. 
 
 **spike_samp.m**   
 
