@@ -34,6 +34,7 @@ General spike sampling program.
 
 # More resources
 [SNN construction and optimization](https://github.com/kaizheng28/neuro-radar-snn/)
+
 [Hardware design files](https://github.com/kaizheng28/neuro-radar-pcb)
 
 # Reference
